@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="card" style="width: 380px; text-align: center;">
+            <!-- Logo UPB di Form Login -->
+            <img src="assets/logo.png.svg" alt="Logo Universitas Pelita Bangsa" style="height: 75px; margin-bottom: 1rem; object-fit: contain;">
+            
+            <h2 style="color: #00adb5; margin-bottom: 1.5rem;">Login Toko Buku</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group" style="text-align: left;">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="user@mail.com">
+                </div>
+                <div class="form-group" style="text-align: left;">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="123456">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+            <div style="margin-top: 1rem; display: flex; justify-content: space-between;">
+                <a href="#" onclick="openModal('modalLupa')" style="color: #00adb5; text-decoration: none; font-size: 0.9rem;">Lupa Password?</a>
+                <a href="#" onclick="openModal('modalDaftar')" style="color: #00adb5; text-decoration: none; font-size: 0.9rem;">Daftar Akun</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Lupa Password -->
+    <div id="modalLupa" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modalLupa')">&times;</span>
+            <h3>Lupa Password</h3>
+            <p style="margin: 1rem 0; font-size: 0.9rem;">Masukkan email Anda untuk reset password.</p>
+            <div class="form-group">
+                <input type="email" placeholder="Alamat Email Anda">
+            </div>
+            <button class="btn" onclick="alert('Instruksi reset password telah dikirim ke email!'); closeModal('modalLupa');">Kirim Reset Link</button>
+        </div>
+    </div>
+
+    <!-- Modal Daftar -->
+    <div id="modalDaftar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modalDaftar')">&times;</span>
+            <h3>Daftar Akun Baru</h3>
+            <form onsubmit="event.preventDefault(); alert('Pendaftaran berhasil! Silakan login.'); closeModal('modalDaftar');">
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Nama Lengkap</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

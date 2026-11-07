@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/logo.png.svg" alt="Logo Universitas Pelita Bangsa" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.4rem; color: #00adb5; margin: 0;">Toko Buku Online</h1>
+        </div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html">Katalog Stok</a>
+            <a href="checkout.html" class="active">Pemesanan</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Form Pemesanan & Checkout</h2>
+            <form onsubmit="handleAddCheckoutItem(event)" style="margin-top: 1rem;">
+                <div style="display: flex; gap: 1rem;">
+                    <div class="form-group" style="flex: 2;">
+                        <label>Pilih Buku</label>
+                        <select id="selectBuku" required></select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Jumlah (Qty)</label>
+                        <input type="number" id="qtyInput" value="1" min="1" required>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button type="submit" class="btn">+ Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Item Buku</th>
+                        <th>Harga Satuan</th>
+                        <th>Qty</th>
+                        <th>Subtotal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="checkoutTableBody">
+                    <!-- Row keranjang diisi via JS -->
+                </tbody>
+            </table>
+
+            <h3 style="text-align: right; margin-top: 1rem; color: #00adb5;">Total: <span id="grandTotal">Rp 0</span></h3>
+        </div>
+
+        <div class="card">
+            <h3>Informasi Pemesan & Pembayaran</h3>
+            <form onsubmit="event.preventDefault(); alert('Pesanan berhasil dibuat!'); window.location.href='tracking.html';">
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Nama Lengkap Pemesan</label>
+                    <input type="text" required placeholder="Contoh: Lingga Chezya">
+                </div>
+                <div class="form-group">
+                    <label>Alamat Pengiriman</label>
+                    <input type="text" required placeholder="Jl. Raya Cikarang No. 123">
+                </div>
+                <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <select required>
+                        <option value="qris">QRIS / E-Wallet</option>
+                        <option value="transfer">Transfer Bank (VA)</option>
+                        <option value="cod">Cash on Delivery (COD)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Proses Pemesanan Sekarang</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

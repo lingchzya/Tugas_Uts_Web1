@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/logo.png.svg" alt="Logo Universitas Pelita Bangsa" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.4rem; color: #00adb5; margin: 0;">Toko Buku Online</h1>
+        </div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html" class="active">Katalog Stok</a>
+            <a href="checkout.html">Pemesanan</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Informasi Stok Buku</h2>
+                <button class="btn" onclick="openModal('modalTambahStok')">+ Tambah Stok Baru</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Jenis</th>
+                        <th>Edisi</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                    </tr>
+                </thead>
+                <tbody id="stokTableBody">
+                    <!-- Render dinamis dari script.js -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal Tambah Stok -->
+    <div id="modalTambahStok" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modalTambahStok')">&times;</span>
+            <h3>Tambah Stok Buku Baru</h3>
+            <form id="formTambahStok" onsubmit="handleAddStok(event)">
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Kode Barang</label>
+                    <input type="text" id="bukuKode" required placeholder="Contoh: INTI4101">
+                </div>
+                <div class="form-group">
+                    <label>Nama Barang / Judul Buku</label>
+                    <input type="text" id="bukuNama" required>
+                </div>
+                <div class="form-group">
+                    <label>Jenis Barang</label>
+                    <input type="text" id="bukuJenis" value="Buku Ajar" required>
+                </div>
+                <div class="form-group">
+                    <label>Edisi</label>
+                    <input type="text" id="bukuEdisi" required placeholder="1">
+                </div>
+                <div class="form-group">
+                    <label>Harga (Rp)</label>
+                    <input type="number" id="bukuHarga" required min="1000" placeholder="150000">
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Stok</label>
+                    <input type="number" id="bukuStok" required min="1" placeholder="50">
+                </div>
+                <div class="form-group">
+                    <label>Pilih Sampul Buku</label>
+                    <select id="bukuCover">
+                        <option value="img/pengantar_komunikasi.jpg">Pengantar Komunikasi</option>
+                        <option value="img/manajemen_keuangan.jpg">Manajemen Keuangan</option>
+                        <option value="img/kepemimpinan.jpg">Kepemimpinan</option>
+                        <option value="img/mikrobiologi.jpg">Mikrobiologi</option>
+                        <option value="img/paud_perkembangan.jpg">PAUD Perkembangan</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Simpan Stok</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

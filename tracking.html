@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/logo.png.svg" alt="Logo Universitas Pelita Bangsa" style="height: 45px; width: auto; object-fit: contain;">
+            <h1 style="font-size: 1.4rem; color: #00adb5; margin: 0;">Toko Buku Online</h1>
+        </div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html">Katalog Stok</a>
+            <a href="checkout.html">Pemesanan</a>
+            <a href="tracking.html" class="active">Tracking</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Tracking Pengiriman Pesanan</h2>
+            <form onsubmit="handleTracking(event)" style="margin-top: 1rem;">
+                <div class="form-group">
+                    <label for="inputDO">Masukkan Nomor Delivery Order (DO)</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="inputDO" required placeholder="Masukkan: 20230012 atau 20230013">
+                        <button type="submit" class="btn">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="trackingResult"></div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
